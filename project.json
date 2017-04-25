@@ -1,0 +1,7 @@
+{
+    "id": "corto/httprouter",
+    "type": "package",
+    "value": {
+        "dependencies": ["corto/web/server", "corto/x"]
+    }
+}
