@@ -25,6 +25,7 @@ corto_int16 _httprouter_Service_onRequest(
             r->uri, 
             corto_fullpath(NULL, this),
             corto_fullpath(NULL, corto_typeof(this)));
+        corto_lasterr(); /* Don't report error */
         goto nomatch;
     } else {
         corto_debug("httprouter: matched '%s' with '%s'", r->uri, corto_fullpath(NULL, route));
