@@ -8,7 +8,7 @@
 
 #include <corto/httprouter/httprouter.h>
 
-corto_int16 _httprouter_Router_construct(
+int16_t _httprouter_Router_construct(
     httprouter_Router this)
 {
 /* $begin(corto/httprouter/Router/construct) */
@@ -21,7 +21,7 @@ corto_int16 _httprouter_Router_construct(
 /* $end */
 }
 
-corto_int32 _httprouter_Router_matchRoute(
+int32_t _httprouter_Router_matchRoute(
     httprouter_Router this,
     corto_route route,
     corto_stringseq pattern,

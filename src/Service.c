@@ -8,7 +8,7 @@
 
 #include <corto/httprouter/httprouter.h>
 
-corto_int16 _httprouter_Service_onRequest(
+int16_t _httprouter_Service_onRequest(
     httprouter_Service this,
     server_HTTP_Connection c,
     server_HTTP_Request *r,
