@@ -14,7 +14,7 @@ int16_t _httprouter_Router_construct(
 /* $begin(corto/httprouter/Router/construct) */
 
     if (!corto_interface(this)->base) {
-        corto_setref(&corto_interface(this)->base, httprouter_Service_o);
+        corto_ptr_setref(&corto_interface(this)->base, httprouter_Service_o);
     }
 
     return corto_super_construct(this);
