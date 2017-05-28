@@ -88,12 +88,12 @@ void _test_RouterTest_tc_GetRouteWithLargeBody(
     test_RouterTest this)
 {
 /* $begin(test/RouterTest/tc_GetRouteWithLargeBody) */
-    // test_TestRouter router = test_TestRouterCreate(3000, "", NULL);
-    // web_client_Result result = web_client_get("localhost:3000/moby-dick", "");
-    // test_assertint(result.status, 200);
-    // test_assertint(strlen(result.response), 3554);
-    // test_assertstr(result.response, (corto_string)MOBY_DICK_OR_THE_WHALE);
-    // corto_delete(router);
+    test_TestRouter router = test_TestRouterCreate(3000, "", NULL);
+    web_client_Result result = web_client_get("localhost:3000/moby-dick", "");
+    test_assertint(result.status, 200);
+    test_assertint(strlen(result.response), 3554);
+    test_assertstr(result.response, (corto_string)MOBY_DICK_OR_THE_WHALE);
+    corto_delete(router);
 /* $end */
 }
 
@@ -157,16 +157,6 @@ void _test_RouterTest_tc_GetRouteWithTwoParts(
     test_assertint(result.status, 200);
     test_assertstr(result.response, "Congratulations, this is the endpoint /part2/part1");
     corto_delete(router);
-/* $end */
-}
-
-void _test_RouterTest_tc_GetSpecialCharacter(
-    test_RouterTest this)
-{
-/* $begin(test/RouterTest/tc_GetSpecialCharacter) */
-
-    /* << Insert implementation >> */
-
 /* $end */
 }
 

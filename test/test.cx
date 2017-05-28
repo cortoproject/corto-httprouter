@@ -17,7 +17,6 @@ httprouter/Router TestRouter:/
     GET addSomething: "/add/{what:identifier}"
     GET getMessage: "/message"
     POST post_users: "/users"
-    GET getCharacter: "/special/$something"
 
 test/Suite RouterTest:/
     void tc_GetIndex()
@@ -31,5 +30,4 @@ test/Suite RouterTest:/
     void tc_GetEndpointUnknown()
     void tc_GetMessageWithUriParam()
     void tc_GetMessage()
-    void tc_GetSpecialCharacter()
     void tc_PostEndpoint()

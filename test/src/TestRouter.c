@@ -45,18 +45,6 @@ corto_string _test_TestRouter_addSomething(
 /* $end */
 }
 
-corto_string _test_TestRouter_getCharacter(
-    test_TestRouter this,
-    server_HTTP_Request *request,
-    test_getCharacter *data)
-{
-/* $begin(test/TestRouter/getCharacter) */
-
-    /* << Insert implementation >> */
-
-/* $end */
-}
-
 corto_string _test_TestRouter_getMessage(
     test_TestRouter this,
     server_HTTP_Request *request,
