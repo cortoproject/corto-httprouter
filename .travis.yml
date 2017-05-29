@@ -1,0 +1,42 @@
+language: c
+
+sudo: false
+
+os:
+  - linux
+
+# Trusty is necessary and Precise is unusable because the latter is missing
+# libc 2.17 `libevent-2.1.so.5`.
+dist: trusty
+
+install:
+  - cd ..
+  - mkdir cortoproject
+  - mv httprouter cortoproject/httprouter
+  - cd cortoproject
+  - git clone https://github.com/cortoproject/corto.git
+  - git clone https://github.com/cortoproject/c-binding.git
+  - git clone https://github.com/cortoproject/json.git
+  - git clone https://github.com/cortoproject/xml.git
+  - git clone https://github.com/cortoproject/vm.git
+  - git clone https://github.com/cortoproject/ic.git
+  - git clone https://github.com/cortoproject/corto-language.git
+  - git clone https://github.com/cortoproject/x.git
+  - git clone https://github.com/cortoproject/test.git
+  - git clone https://github.com/cortoproject/web.git
+  - for g in $(find . -name .git); do echo -e "$(basename $(dirname $g))\t$(git --git-dir $g rev-parse HEAD)"; done | column -t
+  - source corto/configure
+  - cd corto && rake && cd -
+  - cd c-binding && rake && cd -
+  - cd json && rake && cd -
+  - corto build xml
+  - corto build vm
+  - corto build ic
+  - corto build corto-language
+  - corto build x
+  - corto build test
+  - corto build web
+  - corto build httprouter
+
+script:
+  - cd httprouter && corto test && cd -
