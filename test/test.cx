@@ -14,7 +14,7 @@ httprouter/Router TestRouter:/
     GET mobyDick: "/moby-dick"
     GET hello: "/hello"
     GET add: "/add"
-    GET addSomething: "/add/{what:identifier}"
+    // GET addSomething: "/add/{what:identifier}"
     GET getMessage: "/message"
     POST post_users: "/users"
 
