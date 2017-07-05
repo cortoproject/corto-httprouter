@@ -127,12 +127,3 @@ corto_string _test_TestRouter_post_users(
     return buffer;
 /* $end */
 }
-
-// $begin(test/TestRouter/addSomething) */
-//     corto_error("_test_TestRouter_addSomething 1"); // this is not printed :(
-//     char* buffer = NULL;
-//     corto_error("_test_TestRouter_addSomething 2"); // this is not printed :(
-//     corto_asprintf(&buffer, "Added %s!", data->what);
-//     corto_error("_test_TestRouter_addSomething 3"); // this is not printed :(
-//     return buffer;
-// /* $end
