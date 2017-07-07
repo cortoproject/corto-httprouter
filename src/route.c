@@ -1,19 +1,11 @@
-/* $CORTO_GENERATED
- *
- * route.c
- *
- * Only code written between the begin and end tags will be preserved
- * when the file is regenerated.
- */
+/* This is a managed file. Do not delete this comment. */
 
 #include <corto/httprouter/httprouter.h>
-
-corto_string _httprouter_route_defaultAction(
+corto_string httprouter_route_defaultAction(
     httprouter_route this,
     httprouter_Service service,
     server_HTTP_Request *request)
 {
-/* $begin(corto/httprouter/route/defaultAction) */
     corto_string result = NULL;
 
     if (this->file) {
@@ -21,17 +13,15 @@ corto_string _httprouter_route_defaultAction(
     }
 
     return result;
-/* $end */
 }
 
-corto_string _httprouter_route_fileAction(
+corto_string httprouter_route_fileAction(
     httprouter_route this,
     httprouter_Service service,
     server_HTTP_Request *request,
     corto_string path,
     corto_string file)
 {
-/* $begin(corto/httprouter/route/fileAction) */
 
     /* More efficient than loading the entire file into memory */
     char *filePath;
@@ -54,5 +44,5 @@ corto_string _httprouter_route_fileAction(
     corto_dealloc(filePath);
 
     return NULL;
-/* $end */
 }
+

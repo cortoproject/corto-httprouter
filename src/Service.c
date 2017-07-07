@@ -1,20 +1,12 @@
-/* $CORTO_GENERATED
- *
- * Service.c
- *
- * Only code written between the begin and end tags will be preserved
- * when the file is regenerated.
- */
+/* This is a managed file. Do not delete this comment. */
 
 #include <corto/httprouter/httprouter.h>
-
-int16_t _httprouter_Service_onRequest(
+int16_t httprouter_Service_onRequest(
     httprouter_Service this,
     server_HTTP_Connection c,
     server_HTTP_Request *r,
     corto_string uri)
 {
-/* $begin(corto/httprouter/Service/onRequest) */
     corto_string resultStr = NULL;
     corto_any result = {corto_type(corto_string_o), &resultStr, FALSE};
     corto_any param = {corto_type(server_HTTP_Request_o), r, FALSE};
@@ -38,5 +30,5 @@ int16_t _httprouter_Service_onRequest(
     return 1;
 nomatch:
     return 0;
-/* $end */
 }
+

@@ -1,34 +1,24 @@
-/* $CORTO_GENERATED
- *
- * Router.c
- *
- * Only code written between the begin and end tags will be preserved
- * when the file is regenerated.
- */
+/* This is a managed file. Do not delete this comment. */
 
 #include <corto/httprouter/httprouter.h>
-
-int16_t _httprouter_Router_construct(
+int16_t httprouter_Router_construct(
     httprouter_Router this)
 {
-/* $begin(corto/httprouter/Router/construct) */
 
     if (!corto_interface(this)->base) {
         corto_ptr_setref(&corto_interface(this)->base, httprouter_Service_o);
     }
 
     return corto_super_construct(this);
-/* $end */
 }
 
-int32_t _httprouter_Router_matchRoute(
+int32_t httprouter_Router_matchRoute(
     httprouter_Router this,
     corto_route route,
     corto_stringseq pattern,
     corto_any param,
     corto_any *routerData)
 {
-/* $begin(corto/httprouter/Router/matchRoute) */
     corto_assert(
       corto_instanceofType(server_HTTP_Request_o, param.type),
       "web/server/Router parameter is not HTTP/Request");
@@ -52,5 +42,5 @@ int32_t _httprouter_Router_matchRoute(
     }
 
     return result;
-/* $end */
 }
+
