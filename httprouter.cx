@@ -2,7 +2,7 @@ in package corto/httprouter
 use corto/web/server
 
 // Router template that defines route signature and match function
-core/router Router {
+vstore/router Router {
     base = x/parser 
     returnType = string 
     paramType = HTTP/Request 
@@ -12,7 +12,7 @@ core/router Router {
     elementSeparator = null
 } :/
   int16 construct()
-  int32 matchRoute(core/route route, stringseq pattern, any param, out:any routerData)
+  int32 matchRoute(vstore/route route, stringseq pattern, any param, out:any routerData)
 
 // Utility class that maps HTTP requests to route/match
 Router Service: web/server/Service :/

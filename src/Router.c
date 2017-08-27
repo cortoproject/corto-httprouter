@@ -4,7 +4,6 @@
 int16_t httprouter_Router_construct(
     httprouter_Router this)
 {
-
     if (!corto_interface(this)->base) {
         corto_ptr_setref(&corto_interface(this)->base, httprouter_Service_o);
     }
