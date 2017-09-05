@@ -16,8 +16,7 @@ corto_string test_TestRouter_add(
     corto_string bStr = server_HTTP_Request_getVar(request, "b");
     int a = atoi(aStr);
     int b = atoi(bStr);
-    corto_string buffer = NULL;
-    corto_asprintf(&buffer, "result = %d", a + b);
+    corto_string buffer = corto_asprintf("result = %d", a + b);
     return buffer;
 }
 
@@ -27,9 +26,8 @@ corto_string test_TestRouter_addSomething(
     test_addSomething *data)
 {
     corto_error("_test_TestRouter_addSomething 1"); // this is not printed :(
-    char* buffer = NULL;
     corto_error("_test_TestRouter_addSomething 2"); // this is not printed :(
-    corto_asprintf(&buffer, "Added %s!", data->what);
+    char *buffer = corto_asprintf("Added %s!", data->what);
     corto_error("_test_TestRouter_addSomething 3"); // this is not printed :(
     return buffer;
 }
@@ -49,8 +47,7 @@ corto_string test_TestRouter_hello(
     test_hello *data)
 {
     corto_string name = server_HTTP_Request_getVar(request, "name");
-    corto_string buffer = NULL;
-    corto_asprintf(&buffer, "Hello %s!", name);
+    corto_string buffer = corto_asprintf("Hello %s!", name);
     return buffer;
 }
 
@@ -109,8 +106,7 @@ corto_string test_TestRouter_post_users(
 {
     corto_string name = server_HTTP_Request_getVar(request, "name");
     corto_string email = server_HTTP_Request_getVar(request, "email");
-    corto_string buffer = NULL;
-    corto_asprintf(&buffer, "Created user %s with email %s", name, email);
+    corto_string buffer = corto_asprintf("Created user %s with email %s", name, email);
     return buffer;
 }
 
