@@ -4,7 +4,7 @@
 corto_string httprouter_route_defaultAction(
     httprouter_route this,
     httprouter_Service service,
-    server_HTTP_Request *request)
+    httpserver_HTTP_Request *request)
 {
     corto_string result = NULL;
 
@@ -18,7 +18,7 @@ corto_string httprouter_route_defaultAction(
 corto_string httprouter_route_fileAction(
     httprouter_route this,
     httprouter_Service service,
-    server_HTTP_Request *request,
+    httpserver_HTTP_Request *request,
     corto_string path,
     corto_string file)
 {
@@ -32,16 +32,16 @@ corto_string httprouter_route_fileAction(
     }
 
     if (corto_fileTest("%s", filePath)) {
-        server_HTTP_Request_sendfile(request, filePath);
+        httpserver_HTTP_Request_sendfile(request, filePath);
     } else {
         corto_string msg = corto_asprintf("Resource '%s%s%s' not found", path ? path : "", path ? "/" : "", file);
         corto_error("httprouter: %s", msg);
-        server_HTTP_Request_setStatus(request, 404);
-        server_HTTP_Request_reply(request, msg);
+        httpserver_HTTP_Request_setStatus(request, 404);
+        httpserver_HTTP_Request_reply(request, msg);
         corto_dealloc(msg);            
     }
-    corto_dealloc(filePath);
 
+    corto_dealloc(filePath);
     return NULL;
 }
 

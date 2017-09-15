@@ -19,20 +19,20 @@ int32_t httprouter_Router_matchRoute(
     corto_any *routerData)
 {
     corto_assert(
-      corto_instanceofType(server_HTTP_Request_o, param.type),
+      corto_instanceofType(httpserver_HTTP_Request_o, param.type),
       "web/server/Router parameter is not HTTP/Request");
 
     corto_int32 result = -1;
-    server_HTTP_Request *r = param.value;
+    httpserver_HTTP_Request *r = param.value;
     corto_bool match = FALSE;
 
-    if ((r->method == Server_Get) && (corto_instanceof(httprouter_GET_o, route))) {
+    if ((r->method == Httpserver_Get) && (corto_instanceof(httprouter_GET_o, route))) {
         match = TRUE;
-    } else if ((r->method == Server_Post) && (corto_instanceof(httprouter_POST_o, route))) {
+    } else if ((r->method == Httpserver_Post) && (corto_instanceof(httprouter_POST_o, route))) {
         match = TRUE;
-    } else if ((r->method == Server_Put) && (corto_instanceof(httprouter_PUT_o, route))) {
+    } else if ((r->method == Httpserver_Put) && (corto_instanceof(httprouter_PUT_o, route))) {
         match = TRUE;
-    } else if ((r->method == Server_Delete) && (corto_instanceof(httprouter_DELETE_o, route))) {
+    } else if ((r->method == Httpserver_Delete) && (corto_instanceof(httprouter_DELETE_o, route))) {
         match = TRUE;
     }
 

@@ -2,6 +2,9 @@
     "id": "corto/httprouter",
     "type": "package",
     "value": {
-        "dependencies": ["corto/web/server", "corto/x"]
+        "author": "Sander Mertens",
+        "version": "1.0.0",
+        "description": "HTTP router service",        
+        "dependencies": ["corto/httpserver", "corto/x"]
     }
 }

@@ -12,7 +12,7 @@
 #include <include/_project.h>
 #include <corto/httprouter/httprouter.h>
 #include <corto/web/client/client.h>
-#include <corto/web/server/server.h>
+#include <corto/httpserver/httpserver.h>
 #include <corto/test/test.h>
 #include <corto/c/c.h>
 

@@ -1,5 +1,5 @@
 in package corto/httprouter
-use corto/web/server
+use corto/httpserver
 
 // Router template that defines route signature and match function
 vstore/router Router {
@@ -15,7 +15,7 @@ vstore/router Router {
   int32 matchRoute(vstore/route route, stringseq pattern, any param, out:any routerData)
 
 // Utility class that maps HTTP requests to route/match
-Router Service: web/server/Service :/
+Router Service: httpserver/Service :/
   member path: string
   int16 onRequest(HTTP/Connection c, HTTP/Request r, string uri)
 
