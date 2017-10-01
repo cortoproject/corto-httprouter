@@ -18,6 +18,7 @@ vstore/router Router {
 Router Service: httpserver/Service :/
   member path: string
   int16 onRequest(HTTP/Connection c, HTTP/Request r, string uri)
+  int16 construct()
 
 // Encode HTTP methods in type of the route
 procedure route{
