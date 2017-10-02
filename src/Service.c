@@ -27,12 +27,17 @@ int16_t httprouter_Service_onRequest(
         corto_lasterr(); /* Don't report error */
         goto nomatch;
     } else {
-        corto_trace("matched '%s' with '%s'", uri, corto_fullpath(NULL, route));
-        if (resultStr) {
-            httpserver_HTTP_Request_reply(r, resultStr);
-            corto_dealloc(resultStr);
+        if (httpserver_HTTP_Request_getStatus(r) < 400) {
+            corto_trace("matched '%s' with '%s'", uri, corto_fullpath(NULL, route));
+            if (resultStr) {
+                httpserver_HTTP_Request_reply(r, resultStr);
+                corto_debug("result: '%s'", resultStr);
+                corto_dealloc(resultStr);
+            }
+        } else {
+            /* If route returned a 404, router did not match */
+            goto nomatch;
         }
-
     }
 
     corto_component_pop();
