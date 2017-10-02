@@ -35,11 +35,7 @@ corto_string httprouter_route_fileAction(
         corto_trace("serve file '%s'", filePath);
         httpserver_HTTP_Request_sendfile(request, filePath);
     } else {
-        corto_string msg = corto_asprintf("Resource '%s%s%s' not found", path ? path : "", path ? "/" : "", file);
-        corto_error("%s", msg);
         httpserver_HTTP_Request_setStatus(request, 404);
-        httpserver_HTTP_Request_reply(request, msg);
-        corto_dealloc(msg);            
     }
 
     corto_dealloc(filePath);
