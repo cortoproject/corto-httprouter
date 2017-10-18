@@ -10,6 +10,8 @@ vstore/router Router {
     routerDataType = object, 
     routerDataName = "data", 
     elementSeparator = null
+    defaultType = member
+    defaultProcedureType = method
 } :/
   int16 construct()
   int32 matchRoute(vstore/route route, stringseq pattern, any param, out:any routerData)
