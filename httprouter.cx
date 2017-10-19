@@ -3,15 +3,17 @@ use corto/httpserver
 
 // Router template that defines route signature and match function
 vstore/router Router {
-    base = x/parser 
-    returnType = string 
-    paramType = HTTP/Request 
+    base = x/parser
+    returnType = string
+    paramType = HTTP/Request
     paramName = "request"
-    routerDataType = object, 
-    routerDataName = "data", 
+    routerDataType = object
+    routerDataName = "data"
     elementSeparator = null
-    defaultType = member
-    defaultProcedureType = method
+    options = {
+        defaultType = member,
+        defaultProcedureType = method
+    }
 } :/
   int16 construct()
   int32 matchRoute(vstore/route route, stringseq pattern, any param, out:any routerData)
@@ -24,7 +26,7 @@ Router Service: httpserver/Service :/
 
 // Encode HTTP methods in type of the route
 procedure route{
-  base = x/rule  
+  base = x/rule
   options = {parentState = DECLARED}
 }:/
     member file: string
