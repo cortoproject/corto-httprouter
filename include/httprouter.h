@@ -10,6 +10,8 @@
 #include <corto/corto.h>
 #include <corto/corto.h>
 #include <corto/httprouter/_project.h>
+#include <corto/x/c/c.h>
+#include <corto/httpserver/c/c.h>
 #include <corto/c/c.h>
 #include <corto/x/x.h>
 #include <corto/httpserver/httpserver.h>

@@ -31,7 +31,7 @@ corto_string httprouter_route_fileAction(
         filePath = corto_asprintf("%s/%s", service->path, file);
     }
 
-    if (corto_fileTest("%s", filePath)) {
+    if (corto_file_test("%s", filePath)) {
         corto_trace("serve file '%s'", filePath);
         httpserver_HTTP_Request_sendfile(request, filePath);
     } else {

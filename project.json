@@ -3,8 +3,11 @@
     "type": "package",
     "value": {
         "author": "Sander Mertens",
+        "organization": "cortoproject",
+        "repository": "https://github.com/cortoproject/httprouter",
+        "license": "MIT",
         "version": "1.0.0",
-        "description": "HTTP router service",        
-        "dependencies": ["corto/httpserver", "corto/x"]
+        "description": "HTTP router service",
+        "use": ["corto/httpserver", "corto/x"]
     }
 }

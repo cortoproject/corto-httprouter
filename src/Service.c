@@ -8,7 +8,7 @@ int16_t httprouter_Service_onRequest(
     httpserver_HTTP_Request *r,
     corto_string uri)
 {
-    corto_component_push("httprouter");
+    corto_log_push("httprouter");
 
     corto_string resultStr = NULL;
     corto_any result = {corto_type(corto_string_o), &resultStr, FALSE};
@@ -40,10 +40,10 @@ int16_t httprouter_Service_onRequest(
         }
     }
 
-    corto_component_pop();
+    corto_log_pop();
     return 1;
 nomatch:
-    corto_component_pop();
+    corto_log_pop();
     return 0;
 }
 

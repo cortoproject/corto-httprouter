@@ -1,0 +1,34 @@
+in package corto/httprouter
+use corto/httpserver
+
+// Router template that defines route signature and match function
+vstore/router Router {
+    base = x/parser 
+    returnType = string 
+    paramType = HTTP/Request 
+    paramName = "request"
+    routerDataType = object, 
+    routerDataName = "data", 
+    elementSeparator = null
+} :/
+  int16 construct()
+  int32 matchRoute(vstore/route route, stringseq pattern, any param, out:any routerData)
+
+// Utility class that maps HTTP requests to route/match
+Router Service: httpserver/Service :/
+  member path: string
+  int16 onRequest(HTTP/Connection c, HTTP/Request r, string uri)
+
+// Encode HTTP methods in type of the route
+procedure route{
+  base = x/rule  
+  options = {parentState = DECLARED}
+}:/
+    member file: string
+    string defaultAction(httprouter/Service service, HTTP/Request request) method
+    string fileAction(httprouter/Service service, HTTP/Request request, string path, string file) method
+
+procedure GET: base=httprouter/route options={parentState=DECLARED}
+procedure POST: base=httprouter/route options={parentState=DECLARED}
+procedure PUT: base=httprouter/route options={parentState=DECLARED}
+procedure DELETE: base=httprouter/route options={parentState=DECLARED}
