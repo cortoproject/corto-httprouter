@@ -19,7 +19,7 @@ int32_t httprouter_Router_matchRoute(
     corto_any *routerData)
 {
     corto_assert(
-      corto_instanceofType(httpserver_HTTP_Request_o, param.type),
+      corto_type_instanceof(httpserver_HTTP_Request_o, param.type),
       "web/server/Router parameter is not HTTP/Request");
 
     corto_int32 result = -1;

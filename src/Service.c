@@ -1,12 +1,11 @@
 /* This is a managed file. Do not delete this comment. */
 
 #include <corto/httprouter/httprouter.h>
-
 int16_t httprouter_Service_onRequest(
     httprouter_Service this,
     httpserver_HTTP_Connection c,
     httpserver_HTTP_Request *r,
-    corto_string uri)
+    const char *uri)
 {
     corto_log_push("httprouter");
 
@@ -14,7 +13,6 @@ int16_t httprouter_Service_onRequest(
     corto_any result = {corto_type(corto_string_o), &resultStr, FALSE};
     corto_any param = {corto_type(httpserver_HTTP_Request_o), r, FALSE};
     corto_route route = NULL;
-
     corto_debug("match uri '%s' to routes of '%s'",
         uri,
         corto_fullpath(NULL, this));
@@ -34,10 +32,12 @@ int16_t httprouter_Service_onRequest(
                 corto_debug("result: '%s'", resultStr);
                 corto_dealloc(resultStr);
             }
+
         } else {
             /* If route returned a 404, router did not match */
             goto nomatch;
         }
+
     }
 
     corto_log_pop();
