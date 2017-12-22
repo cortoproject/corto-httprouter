@@ -19,8 +19,8 @@ corto_string httprouter_route_fileAction(
     httprouter_route this,
     httprouter_Service service,
     httpserver_HTTP_Request *request,
-    corto_string path,
-    corto_string file)
+    const char *path,
+    const char *file)
 {
 
     /* More efficient than loading the entire file into memory */
