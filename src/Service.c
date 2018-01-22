@@ -1,6 +1,7 @@
 /* This is a managed file. Do not delete this comment. */
 
 #include <corto/httprouter/httprouter.h>
+
 int16_t httprouter_Service_onRequest(
     httprouter_Service this,
     httpserver_HTTP_Connection c,
@@ -16,10 +17,10 @@ int16_t httprouter_Service_onRequest(
     corto_debug("match uri '%s' to routes of '%s'",
         uri,
         corto_fullpath(NULL, this));
-    
+
     if (corto_router_match(this, uri, param, result, &route)) {
-        corto_debug("request '%s' not matched to routes in '%s' of type '%s'", 
-            r->uri, 
+        corto_debug("request '%s' not matched to routes in '%s' of type '%s'",
+            r->uri,
             corto_fullpath(NULL, this),
             corto_fullpath(NULL, corto_typeof(this)));
         corto_lasterr(); /* Don't report error */
@@ -53,4 +54,3 @@ int16_t httprouter_Service_construct(
     httpserver_Service(this)->redirectEndpointToPath = true;
     return corto_super_construct(this);
 }
-

@@ -26,7 +26,11 @@ corto_string httprouter_route_fileAction(
     /* More efficient than loading the entire file into memory */
     char *filePath;
     if (path) {
-        filePath = corto_asprintf("%s/%s/%s", service->path, path, file);
+        if (path[0] != '/') {
+            filePath = corto_asprintf("%s/%s/%s", service->path, path, file);
+        } else {
+            filePath = corto_asprintf("%s/%s", path, file);
+        }
     } else {
         filePath = corto_asprintf("%s/%s", service->path, file);
     }
@@ -35,10 +39,10 @@ corto_string httprouter_route_fileAction(
         corto_trace("serve file '%s'", filePath);
         httpserver_HTTP_Request_sendfile(request, filePath);
     } else {
+        corto_warning("file '%s' not found", filePath);
         httpserver_HTTP_Request_setStatus(request, 404);
     }
 
     corto_dealloc(filePath);
     return NULL;
 }
-
