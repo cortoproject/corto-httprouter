@@ -1,9 +1,10 @@
 /* This is a managed file. Do not delete this comment. */
 
 #include <corto/httprouter/httprouter.h>
+
 corto_string httprouter_route_defaultAction(
     httprouter_route this,
-    httprouter_Service service,
+    httprouter_service service,
     httpserver_HTTP_Request *request)
 {
     corto_string result = NULL;
@@ -17,12 +18,11 @@ corto_string httprouter_route_defaultAction(
 
 corto_string httprouter_route_fileAction(
     httprouter_route this,
-    httprouter_Service service,
+    httprouter_service service,
     httpserver_HTTP_Request *request,
     const char *path,
     const char *file)
 {
-
     /* More efficient than loading the entire file into memory */
     char *filePath;
     if (path) {
@@ -31,6 +31,7 @@ corto_string httprouter_route_fileAction(
         } else {
             filePath = corto_asprintf("%s/%s", path, file);
         }
+
     } else {
         filePath = corto_asprintf("%s/%s", service->path, file);
     }
