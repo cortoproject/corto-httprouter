@@ -45,11 +45,11 @@ int16_t httprouter_service_forward(
         corto_fullpath(NULL, this));
 
     if (corto_router_match(this, real_uri, param, result, &route)) {
+        corto_catch(); /* Don't report error */
         corto_debug("request '%s' not matched to routes in '%s' of type '%s'",
             r->uri,
             corto_fullpath(NULL, this),
             corto_fullpath(NULL, corto_typeof(this)));
-        corto_lasterr(); /* Don't report error */
         goto nomatch;
     } else {
         if (httpserver_HTTP_Request_getStatus(r) < 400) {
