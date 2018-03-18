@@ -8,6 +8,9 @@
         "license": "MIT",
         "version": "1.0.0",
         "description": "HTTP router service",
-        "use": ["corto/httpserver", "corto/x"]
+        "use": ["corto/httpserver", "corto/x"],
+        "dependee": {
+            "use": ["corto/httpserver", "corto/x"]
+        }
     }
 }
