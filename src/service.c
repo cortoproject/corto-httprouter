@@ -52,7 +52,7 @@ int16_t httprouter_service_forward(
             corto_fullpath(NULL, corto_typeof(this)));
         goto nomatch;
     } else {
-        if (httpserver_HTTP_Request_getStatus(r) < 400) {
+        if (httpserver_HTTP_Request_getStatus(r) != 404) {
             corto_trace("matched '%s' with '%s'", uri, corto_fullpath(NULL, route));
             if (resultStr) {
                 httpserver_HTTP_Request_reply(r, resultStr);
