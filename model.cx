@@ -17,7 +17,7 @@ vstore/router Router {
 // Utility class that maps HTTP requests to route/match
 Router service: httpserver/Service :/
   member path: string
-  int16 onRequest(HTTP/Connection c, HTTP/Request r, string uri)
+  int16 on_request(HTTP/Connection c, HTTP/Request r, string uri)
   int16 forward(HTTP/Request r, string uri)
 
 // Encode HTTP methods in type of the route

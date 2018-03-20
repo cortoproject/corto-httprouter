@@ -2,7 +2,7 @@
 
 #include <corto/httprouter/httprouter.h>
 
-int16_t httprouter_service_onRequest(
+int16_t httprouter_service_on_request(
     httprouter_service this,
     httpserver_HTTP_Connection c,
     httpserver_HTTP_Request *r,
