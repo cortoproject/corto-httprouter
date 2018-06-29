@@ -1,18 +1,19 @@
 in package corto/httprouter
+
 use corto/httpserver
 
 // Router template that defines route signature and match function
 vstore/router Router {
     base = x/parser
-    returnType = string
-    paramType = HTTP/Request
-    paramName = "request"
-    routerDataType = object,
-    routerDataName = "data",
-    elementSeparator = null
+    return_type = string
+    param_type = HTTP/Request
+    param_name = "request"
+    router_data_type = object,
+    router_data_name = "data",
+    element_separator = null
 } :/
   int16 construct()
-  int32 matchRoute(vstore/route route, stringseq pattern, any param, out:any routerData)
+  int32 match_route(vstore/route route, stringseq pattern, any param, out:any routerData)
 
 // Utility class that maps HTTP requests to route/match
 Router service: httpserver/Service :/

@@ -5,7 +5,7 @@
 corto_string httprouter_route_defaultAction(
     httprouter_route this,
     httprouter_service service,
-    httpserver_HTTP_Request *request)
+    corto_httpserver_HTTP_Request *request)
 {
     corto_string result = NULL;
 
@@ -19,7 +19,7 @@ corto_string httprouter_route_defaultAction(
 corto_string httprouter_route_fileAction(
     httprouter_route this,
     httprouter_service service,
-    httpserver_HTTP_Request *request,
+    corto_httpserver_HTTP_Request *request,
     const char *path,
     const char *file)
 {

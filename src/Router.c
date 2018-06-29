@@ -11,7 +11,7 @@ int16_t httprouter_Router_construct(
     return corto_super_construct(this);
 }
 
-int32_t httprouter_Router_matchRoute(
+int32_t httprouter_Router_match_route(
     httprouter_Router this,
     corto_route route,
     corto_stringseq pattern,
@@ -37,7 +37,7 @@ int32_t httprouter_Router_matchRoute(
     }
 
     if (match) {
-        result = x_parser_matchRoute_v(this, route, pattern, param, routerData);
+        result = x_parser_match_route_v(this, route, pattern, param, routerData);
     }
 
     return result;

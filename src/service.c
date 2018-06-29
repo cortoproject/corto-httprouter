@@ -4,8 +4,8 @@
 
 int16_t httprouter_service_on_request(
     httprouter_service this,
-    httpserver_HTTP_Connection c,
-    httpserver_HTTP_Request *r,
+    corto_httpserver_HTTP_Connection c,
+    corto_httpserver_HTTP_Request *r,
     const char *uri)
 {
     corto_log_push("httprouter");
@@ -23,7 +23,7 @@ int16_t httprouter_service_construct(
 
 int16_t httprouter_service_forward(
     httprouter_service this,
-    httpserver_HTTP_Request *r,
+    corto_httpserver_HTTP_Request *r,
     const char *uri)
 {
     corto_string resultStr = NULL;
