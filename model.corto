@@ -1,0 +1,59 @@
+in corto.httprouter
+
+use corto.httpserver
+
+/** Router template that defines route signature and match function */
+corto.vstore.router Router = {
+    base: x.parser,
+    return_type: string,
+    param_type: HTTP.Request,
+    param_name: "request",
+    router_data_type: object,
+    router_data_name: "data",
+    element_separator: null
+} {
+    construct() int16
+
+    match_route(
+        corto.vstore.route route,
+        stringseq pattern,
+        any param,
+        out any routerData) int32
+}
+
+/** Utility class that maps HTTP requests to route/match */
+Router service: httpserver.Service {
+    member path: string
+
+    on_request(
+        HTTP.Connection c,
+        HTTP.Request r,
+        string uri) int16
+
+    forward(
+        HTTP.Request r,
+        string uri) int16
+}
+
+/** Encode HTTP methods in type of the route */
+procedure route = {base: x.rule, parent_state: declared} {
+    member file: string
+
+method
+    defaultAction(
+        httprouter.Service service,
+        HTTP.Request request) string
+
+    fileAction(
+        httprouter.Service service,
+        HTTP.Request request,
+        string path,
+        string file) string
+}
+
+/** HTTP methods */
+procedure
+GET = {base: httprouter.route, parent_state: declared}
+POST = {base: httprouter.route, parent_state: declared}
+PUT = {base: httprouter.route, parent_state: declared}
+DELETE = {base: httprouter.route, parent_state: declared}
