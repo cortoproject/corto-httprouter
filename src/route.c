@@ -1,6 +1,6 @@
 /* This is a managed file. Do not delete this comment. */
 
-#include <corto/httprouter/httprouter.h>
+#include <corto.httprouter>
 
 corto_string httprouter_route_defaultAction(
     httprouter_route this,
@@ -27,20 +27,20 @@ corto_string httprouter_route_fileAction(
     char *filePath;
     if (path) {
         if (path[0] != '/') {
-            filePath = corto_asprintf("%s/%s/%s", service->path, path, file);
+            filePath = ut_asprintf("%s/%s/%s", service->path, path, file);
         } else {
-            filePath = corto_asprintf("%s/%s", path, file);
+            filePath = ut_asprintf("%s/%s", path, file);
         }
 
     } else {
-        filePath = corto_asprintf("%s/%s", service->path, file);
+        filePath = ut_asprintf("%s/%s", service->path, file);
     }
 
-    if (corto_file_test("%s", filePath)) {
-        corto_trace("serve file '%s'", filePath);
+    if (ut_file_test("%s", filePath)) {
+        ut_trace("serve file '%s'", filePath);
         httpserver_HTTP_Request_sendfile(request, filePath);
     } else {
-        corto_warning("file '%s' not found", filePath);
+        ut_warning("file '%s' not found", filePath);
         httpserver_HTTP_Request_setStatus(request, 404);
     }
 

@@ -7,13 +7,13 @@
 #ifndef TEST_H
 #define TEST_H
 
-#include <corto/corto.h>
-#include <corto/corto.h>
+#include <corto>
+#include <corto>
 #include <include/_project.h>
 #include <corto/httprouter/httprouter.h>
 #include <corto/web/client/client.h>
 #include <corto/httpserver/httpserver.h>
-#include <corto/test/test.h>
+#include <corto.test>
 #include <corto/c/c.h>
 
 /* $header() */
