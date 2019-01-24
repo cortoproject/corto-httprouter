@@ -1,6 +1,6 @@
 /* This is a managed file. Do not delete this comment. */
 
-#include <corto/httprouter/httprouter.h>
+#include <corto.httprouter>
 
 int16_t httprouter_service_on_request(
     httprouter_service this,
@@ -8,9 +8,9 @@ int16_t httprouter_service_on_request(
     corto_httpserver_HTTP_Request *r,
     const char *uri)
 {
-    corto_log_push("httprouter");
+    ut_log_push("httprouter");
     int16_t result = httprouter_service_forward(this, r, uri);
-    corto_log_pop();
+    ut_log_pop();
     return result;
 }
 
@@ -36,27 +36,27 @@ int16_t httprouter_service_forward(
 
     /* If slash is last character, strip it from string */
     if (uri_last_elem && !uri_last_elem[1] && uri_last_elem != uri) {
-        real_uri = corto_strdup(uri);
+        real_uri = ut_strdup(uri);
         real_uri[uri_last_elem - uri] = '\0';
     }
 
-    corto_debug("match uri '%s' to routes of '%s'",
+    ut_debug("match uri '%s' to routes of '%s'",
         uri,
         corto_fullpath(NULL, this));
 
     if (corto_router_match(this, real_uri, param, result, &route)) {
-        corto_catch(); /* Don't report error */
-        corto_debug("request '%s' not matched to routes in '%s' of type '%s'",
+        ut_catch(); /* Don't report error */
+        ut_debug("request '%s' not matched to routes in '%s' of type '%s'",
             r->uri,
             corto_fullpath(NULL, this),
             corto_fullpath(NULL, corto_typeof(this)));
         goto nomatch;
     } else {
         if (httpserver_HTTP_Request_getStatus(r) != 404) {
-            corto_trace("matched '%s' with '%s'", uri, corto_fullpath(NULL, route));
+            ut_trace("matched '%s' with '%s'", uri, corto_fullpath(NULL, route));
             if (resultStr) {
                 httpserver_HTTP_Request_reply(r, resultStr);
-                corto_debug("result: '%s'", resultStr);
+                ut_debug("result: '%s'", resultStr);
                 corto_dealloc(resultStr);
             }
         } else {

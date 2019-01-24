@@ -1,6 +1,6 @@
 /* This is a managed file. Do not delete this comment. */
 
-#include <corto/httprouter/httprouter.h>
+#include <corto.httprouter>
 
 int cortomain(int argc, char *argv[]) {
 

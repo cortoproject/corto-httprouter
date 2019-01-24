@@ -1,5 +1,5 @@
 {
-    "id": "corto/httprouter",
+    "id": "corto.httprouter",
     "type": "package",
     "value": {
         "author": "Sander Mertens",
@@ -8,9 +8,12 @@
         "license": "MIT",
         "version": "1.0.0",
         "description": "HTTP router service",
-        "use": ["corto/httpserver", "corto/x"],
-        "dependee": {
-            "use": ["corto/httpserver", "corto/x"]
+        "use": ["corto.httpserver", "corto.x"]
+    },
+    "corto": { },
+    "dependee": {
+        "value": {
+            "use": ["corto.httpserver", "corto.x"]
         }
     }
 }

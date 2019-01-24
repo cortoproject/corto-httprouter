@@ -6,23 +6,20 @@
 #ifndef CORTO_HTTPROUTER_H
 #define CORTO_HTTPROUTER_H
 
-#include <corto/corto.h>
-#include <corto/httprouter/_project.h>
-#include <corto/x/c/c.h>
-#include <corto/httpserver/c/c.h>
-#include <corto/c/c.h>
-#include <corto/x/x.h>
-#include <corto/httpserver/httpserver.h>
+#include "bake_config.h"
+
+#define CORTO_HTTPROUTER_ETC ut_locate("corto.httprouter", NULL, UT_LOCATE_ETC)
 
 /* $header() */
 /* Enter additional code here. */
 /* $end */
 
-#include <corto/httprouter/_type.h>
-#include <corto/httprouter/_interface.h>
-#include <corto/httprouter/_load.h>
-#include <corto/httprouter/_binding.h>
-#include <corto/httprouter/c/_api.h>
+#include "_type.h"
+#include "_interface.h"
+#include "_load.h"
+#include "_binding.h"
+
+#include <corto.httprouter.c>
 
 /* $body() */
 /* Enter code that requires types here */

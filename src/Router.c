@@ -1,6 +1,7 @@
 /* This is a managed file. Do not delete this comment. */
 
-#include <corto/httprouter/httprouter.h>
+#include <corto.httprouter>
+
 int16_t httprouter_Router_construct(
     httprouter_Router this)
 {
@@ -18,7 +19,7 @@ int32_t httprouter_Router_match_route(
     corto_any param,
     corto_any *routerData)
 {
-    corto_assert(
+    ut_assert(
       corto_type_instanceof(httpserver_HTTP_Request_o, param.type),
       "web/server/Router parameter is not HTTP/Request");
 

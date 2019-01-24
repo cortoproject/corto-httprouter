@@ -41,17 +41,17 @@ void test_RouterTest_tc_GetMessage(
 void test_RouterTest_tc_GetMessageWithUriParam(
     test_RouterTest this)
 {
-    // corto_error("_test_RouterTest_tc_GetMessageWithUriParam 1");
+    // ut_error("_test_RouterTest_tc_GetMessageWithUriParam 1");
     // test_TestRouter router = test_TestRouterCreate(3000, "", NULL);
-    // corto_error("_test_RouterTest_tc_GetMessageWithUriParam 2");
+    // ut_error("_test_RouterTest_tc_GetMessageWithUriParam 2");
     // web_client_Result result = web_client_get("localhost:3000/add/sugar", "");
-    // corto_error("_test_RouterTest_tc_GetMessageWithUriParam 3");
+    // ut_error("_test_RouterTest_tc_GetMessageWithUriParam 3");
     // test_assertint(result.status, 200);
-    // corto_error("_test_RouterTest_tc_GetMessageWithUriParam 4");
+    // ut_error("_test_RouterTest_tc_GetMessageWithUriParam 4");
     // test_assertstr(result.response, "Added sugar!");
-    // corto_error("_test_RouterTest_tc_GetMessageWithUriParam 5");
+    // ut_error("_test_RouterTest_tc_GetMessageWithUriParam 5");
     // corto_delete(router);
-    // corto_error("_test_RouterTest_tc_GetMessageWithUriParam 6");
+    // ut_error("_test_RouterTest_tc_GetMessageWithUriParam 6");
 }
 
 void test_RouterTest_tc_GetRouteWithCommonParts(
